@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Project } = require('../models');
+const {areAuth, withAuth} = require('../utils/auth');
 
 
 router.get('/', async (req, res) => {
@@ -17,8 +18,12 @@ router.get('project/:id', async (req, res) => {
     res.render('project', projectData);
 });
 
-router.get('login', async (req, res) => {
+router.get('/login', areAuth , async (req, res) => {
     res.render('login');
+})
+
+router.get('/profle', withAuth, async (req, res) => {
+    
 })
 
 module.exports = router;
