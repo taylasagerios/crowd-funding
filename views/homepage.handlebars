@@ -1,0 +1,12 @@
+<ul class="project-list">
+    {{#each projects}}
+        <li>
+            <h2>{{name}}</h2>
+            <p>{{description}}</p>
+            <p>Needed Funding: ${{needed_funding}}</p>
+            <p>Date Created: {{date_created}}</p>
+            <a href="/project/{{id}}">View Details</a>
+        </li>
+    {{/each}}
+</ul>
+    
