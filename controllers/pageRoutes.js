@@ -4,7 +4,7 @@ const {areAuth, withAuth} = require('../utils/auth');
 
 
 router.get('/', async (req, res) => {
-    const projectData = await Project.getAll();
+    const projectData = await Project.findAll();
     const projects = projectData.map((project) => project.get({ plain: true }));
     res.render('homepage', {projects: projects});
 })
@@ -23,7 +23,7 @@ router.get('/login', areAuth , async (req, res) => {
 })
 
 router.get('/profle', withAuth, async (req, res) => {
-    
+
 })
 
 module.exports = router;
